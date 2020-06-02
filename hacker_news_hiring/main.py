@@ -8,10 +8,10 @@ POSTING_ID = 23379196
 
 # Search text with following regex patterns (case-insensitive)
 LOCATION_PATTERN = "(remote)|(san diego)"
-CAREER_PATTERN = "(fullstack)|(full-stack)|(frontend)|(front-end)|(software engineer)"
+CAREER_PATTERN = "(fullstack)|(full-stack)|(frontend)|(front-end)"
 
 # CSV name
-CSV_NAME = "hacker_news_postings.csv"
+CSV_NAME = "postings.csv"
 
 
 # ==================================================
@@ -23,19 +23,6 @@ def call_hacker_news_api(id=None):
   return requests.get(
     'https://hacker-news.firebaseio.com/v0/item/{id}.json'.format(id=id)
   )
-
-
-# Create an in-memory cache containing HN posts that have already been queried
-def store_existing_csv_data():
-  try:
-    comment_ids = {}
-    with open(CSV_NAME) as csv_file:
-      for row in csv.reader(csv_file, delimiter=','):
-        comment_ids[row[0]] = True
-    return comment_ids
-  except FileNotFoundError:
-    print("CSV not found.")
-    return {}
 
 
 # Generate CSV with postings matching criteria above
