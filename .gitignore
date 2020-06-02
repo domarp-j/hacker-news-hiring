@@ -2,3 +2,5 @@
 .vscode/
 hacker_news_hiring/__pycache__/
 hacker_news_hiring.egg-info/
+blacklist.csv
+postings.csv
