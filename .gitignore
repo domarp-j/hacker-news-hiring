@@ -1,4 +1,4 @@
-.mypy_cache/3.5
+.mypy_cache*
 .vscode/
 hacker_news_hiring/__pycache__/
 hacker_news_hiring.egg-info/
