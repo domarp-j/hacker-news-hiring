@@ -8,7 +8,7 @@ POSTING_ID = 23379196
 
 # Search text with following regex patterns (case-insensitive)
 LOCATION_PATTERN = "(remote)|(san diego)"
-CAREER_PATTERN = "(fullstack)|(full-stack)|(frontend)|(front-end)|(backend)|(back-end)|(software engineer)"
+CAREER_PATTERN = "(fullstack)|(full-stack)|(frontend)|(front-end)|(software engineer)"
 
 # CSV name
 CSV_NAME = "hacker_news_postings.csv"
