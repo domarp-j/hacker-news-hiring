@@ -9,6 +9,7 @@ POSTING_ID = 23379196
 # Search text with following regex patterns (case-insensitive)
 LOCATION_PATTERN = "(remote)|(san diego)"
 CAREER_PATTERN = "(fullstack)|(full-stack)|(frontend)|(front-end)"
+BLACKLIST_PATTERN = "(php)|(wordpress)"
 
 # CSV name
 POSTING_CSV = "postings.csv"
@@ -39,7 +40,7 @@ def call_hacker_news_api(id=None):
 
 # Generate CSV with postings matching criteria above
 def write_csv(who_is_hiring={}, blacklist={}):
-  with open(POSTING_CSV, 'a+') as csv_file:
+  with open(POSTING_CSV, 'w') as csv_file:
     writer = csv.writer(csv_file, delimiter=',')
 
     for comment_id in who_is_hiring["kids"]:
@@ -55,8 +56,9 @@ def write_csv(who_is_hiring={}, blacklist={}):
 
       location_match = re.search(LOCATION_PATTERN, posting.json()["text"].lower())
       career_match = re.search(CAREER_PATTERN, posting.json()["text"].lower())
+      blacklist_match = re.search(BLACKLIST_PATTERN, posting.json()["text"].lower())
 
-      if location_match and career_match:
+      if location_match and career_match and not blacklist_match:
         print("Match! Storing in CSV...")
         writer.writerow([
           comment_id,
