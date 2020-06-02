@@ -8,12 +8,13 @@ POSTING_ID = 23379196
 
 # Search text with following regex patterns (case-insensitive)
 LOCATION_PATTERN = "(remote)|(san diego)"
-CAREER_PATTERN = "(fullstack)|(full-stack)|(frontend)|(front-end)"
-BLACKLIST_PATTERN = "(php)|(wordpress)"
+CAREER_PATTERN = "(fullstack)|(full-stack)|(frontend)|(front-end)|(react)|(vue)|(node)"
+BLACKLIST_PATTERN = "(php)|(wordpress)|(remote until)|(remote during)"
 
 # CSV name
 POSTING_CSV = "postings.csv"
 BLACKLIST_CSV = "blacklist.csv"
+
 
 # ==================================================
 # Helpers
